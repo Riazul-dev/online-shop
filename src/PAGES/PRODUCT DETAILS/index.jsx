@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { globalContext } from "../../CONTEXT/Context";
-import { NavLink } from "react-router-dom";
-import NavComponent from "./NavComponent";
+// import { NavLink } from "react-router-dom";
+// import NavComponent from "./NavComponent";
 import DescReviewSection from "./DescReviewSection";
 import ProductColor from "./ProductColor";
 
 const ProductDetails = () => {
   const [component, setComponent] = useState(false);
-  const { addToCart, detailProduct } = globalContext();
+  const [productQty, setProductQty] = useState(0);
+  const { addToCart, detailProduct, cartProducts } = globalContext();
   const displayProduct = detailProduct[0];
   const {
     productCategory,
@@ -22,9 +23,21 @@ const ProductDetails = () => {
     addToCart(displayProduct);
   };
 
+
+
   return (
     <div className="bg-[#F5F7F9]">
-      <div className="max-w-screen-xl mx-auto">
+      <div className="max-w-screen-xl mx-auto pt-24">
+        {/* conditional component */}
+        {cartProducts.length > 0 && (
+          <div className="flex justify-end border-t-4 border-slate-800 px-10 pt-4">
+            {/* <p>"{cartProducts.productName}" has been added to your cart.</p> */}
+            <button className="bg-blue-500 px-4 py-2 text-white">
+              VIEW CART
+            </button>
+          </div>
+        )}
+
         <div className=" grid lg:grid-cols-2 gap-6 px-4 lg:px-6 py-24">
           <div>
             <img className="w-full" src={productImage} alt={productName} />
@@ -65,9 +78,9 @@ const ProductDetails = () => {
                 </div>
               )}
 
-
               <div className="flex gap-4 py-4 border-b-2">
                 <input
+                  onChange={(e) => setProductQty(e.target.value)}
                   className="w-12 pl-3 py-1 border outline-none"
                   min={1}
                   type="number"
@@ -89,7 +102,7 @@ const ProductDetails = () => {
         </div>
 
         {/* Description and Review section */}
-      <DescReviewSection component={component} setComponent={setComponent} />
+        <DescReviewSection component={component} setComponent={setComponent} />
       </div>
     </div>
   );

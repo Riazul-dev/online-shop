@@ -17,7 +17,8 @@ export const ProductData = [
     prevPrice: 280,
     newPrice: 240,
     productCategory: "Men",
-    star: <FaStar />
+    star: <FaStar />,
+    qty: 0
   },
   {
       id: 3,
@@ -26,7 +27,8 @@ export const ProductData = [
       prevPrice: 200,
       newPrice: 150,
       productCategory: 'Men',
-      star: <FaStar />
+      star: <FaStar />,
+      qty: 0
   },
   {
       id: 4,
@@ -35,7 +37,8 @@ export const ProductData = [
       prevPrice: 180,
       newPrice: 150,
       productCategory: 'Women',
-      star: <FaStar />
+      star: <FaStar />,
+      qty: 0
   },
   {
       id: 5,
@@ -44,7 +47,8 @@ export const ProductData = [
       prevPrice: 180,
       newPrice: 150,
       productCategory: 'Women',
-      star: <FaStar />
+      star: <FaStar />,
+      qty: 0
   },
   {
       id: 6,
@@ -53,7 +57,8 @@ export const ProductData = [
       prevPrice: 150,
       newPrice: 130,
       productCategory: 'Women',
-      star: <FaStar />
+      star: <FaStar />,
+      qty: 0
   },
   {
       id: 7,
@@ -62,7 +67,8 @@ export const ProductData = [
       prevPrice: 200,
       newPrice: 170,
       productCategory: 'Accessories',
-      star: <FaStar />
+      star: <FaStar />,
+      qty: 0
   },
   {
       id: 8,
@@ -71,7 +77,8 @@ export const ProductData = [
       prevPrice: 200,
       newPrice: 180,
       productCategory: 'Accessories',
-      star: <FaStar />
+      star: <FaStar />,
+      qty: 0
   },
   {
       id: 9,
@@ -80,7 +87,8 @@ export const ProductData = [
       prevPrice: 180,
       newPrice: 150,
       productCategory: 'Accessories',
-      star: <FaStar />
+      star: <FaStar />,
+      qty: 0
   },
   {
       id: 10,
@@ -90,7 +98,8 @@ export const ProductData = [
       prevPrice: 160,
       newPrice: 140,
       productCategory: 'Accessories',
-      star: <FaStar />
+      star: <FaStar />,
+      qty: 0
   },
   
  

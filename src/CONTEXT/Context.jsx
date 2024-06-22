@@ -41,7 +41,9 @@ const ContextProvider = ({ children }) => {
   };
 
   const showProductDetails = (productId) => {
-    const showProduct = ProductData.filter((currentProduct) => currentProduct.id === productId);
+    const showProduct = ProductData.filter(
+      (currentProduct) => currentProduct.id === productId
+    );
 
     dispatch({
       type: "PRODUCT_DETAILS",
@@ -83,7 +85,14 @@ const ContextProvider = ({ children }) => {
   }, []);
 
   return (
-    <Context.Provider value={{ ...state, addToCart, removeFromCart, showProductDetails }}>
+    <Context.Provider
+      value={{
+        ...state,
+        addToCart,
+        removeFromCart,
+        showProductDetails,
+      }}
+    >
       {children}
     </Context.Provider>
   );
