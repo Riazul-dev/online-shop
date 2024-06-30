@@ -56,8 +56,12 @@ const LgNav = () => {
           </NavLink>
 
           <div className="relative px-4">
-            <NavLink onClick={() => setToggleCart(!toggleCart)}>
-              <BiSolidCartDownload className="text-2xl hover:text-blue-300 duration-200" />
+            <NavLink
+              className="flex gap-2 hover:text-blue-300 duration-200"
+              onClick={() => setToggleCart(!toggleCart)}
+            >
+              <p className="text-lg font-medium">$0.00</p>
+              <BiSolidCartDownload className="text-2xl" />
               <span className="absolute min-h-5 min-w-5 flex justify-center items-center -top-4 right-0 border rounded-full text-xs p-0.5 bg-white text-slate-900">
                 {cartProducts.length > 0 ? cartProducts.length : 0}
               </span>

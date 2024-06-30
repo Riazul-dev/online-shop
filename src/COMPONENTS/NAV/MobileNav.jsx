@@ -28,9 +28,13 @@ const MobileNav = () => {
         <div className="flex justify-center items-center gap-3">
           {/* cart icon */}
           <div className="relative px-4">
-            <NavLink onClick={() => setToggleCart(!toggleCart)}>
-              <BiSolidCartDownload className="text-2xl text-black" />
-              <span className="absolute min-h-5 min-w-5 flex justify-center items-center -top-4 right-0 rounded-full text-xs p-0.5 bg-slate-800 text-white">
+            <NavLink
+              className="flex gap-2 text-black hover:text-blue-400 duration-500"
+              onClick={() => setToggleCart(!toggleCart)}
+            >
+              <p className="text-lg font-medium">$0.00</p>
+              <BiSolidCartDownload className="text-2xl" />
+              <span className="absolute min-h-5 min-w-5 flex justify-center items-center -top-4 right-0 border rounded-full text-xs p-0.5 bg-white text-slate-900">
                 {cartProducts.length > 0 ? cartProducts.length : 0}
               </span>
             </NavLink>
