@@ -94,7 +94,6 @@ export const ProductData = [
       id: 10,
       productImage: '../products/Bright-Red-Bag.jpeg',
       productName: 'Bright Red Bag',
-      colors: ['red', 'green', 'blue'],
       prevPrice: 160,
       newPrice: 140,
       productCategory: 'Accessories',

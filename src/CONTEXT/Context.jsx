@@ -12,7 +12,7 @@ const initialState = {
   cartProducts: [],
   menProducts: [],
   womenProducts: [],
-  Accessories: [],
+  Accessories: [], 
   detailProduct: [],
 };
 

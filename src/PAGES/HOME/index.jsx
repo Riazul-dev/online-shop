@@ -6,12 +6,12 @@ import EditionSection from './EditionSection'
 
 const Home = () => {
   return (
-    <div className=''>
+    <>
         <HeroSection />
         <CardSection />
         <FeaturedSection />
         <EditionSection />
-    </div>
+    </>
   )
 }
 

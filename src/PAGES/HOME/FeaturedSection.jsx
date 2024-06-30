@@ -6,7 +6,7 @@ const FeaturedSection = () => {
   const { products } = globalContext();
 
   return (
-    <div>
+    <div className="bg-slate-100 py-20 md:px-8 lg:px-10">
       <div className="flex flex-col items-center gap-10">
         <h2 className="text-center text-4xl font-semibold text-[#6EC1E4]">
           Featured Products

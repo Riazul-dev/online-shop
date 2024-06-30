@@ -29,17 +29,6 @@ const CardProduct = ({ product }) => {
         <p>{productCategory}</p>
         <p>${newPrice?.toFixed(2)}</p>
 
-        {/* products colors */}
-        <div className="flex items-center gap-3">
-          {colors?.map((color, i) => {
-            return (
-              <div key={i} className="border border-slate-300 px-2">
-                <span>{color}</span>
-              </div>
-            );
-          })}
-        </div>
-
         <div>
           <span className="flex items-center gap-0.5 text-orange-400">
             {star}

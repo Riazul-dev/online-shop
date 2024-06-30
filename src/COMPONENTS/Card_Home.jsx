@@ -4,18 +4,19 @@ import Button from "./Button";
 const CardHome = ({ title, desc, img }) => {
   return (
     <div
-      className="h-[300px] max-w-96 lg:h-[500px] bg-no-repeat bg-cover"
+      className="h-[300px] md:h-[450px] lg:h-[500px] bg-no-repeat bg-cover"
       style={{
-        backgroundImage:
-          `url(${img})`,
+        backgroundImage: `url(${img})`,
       }}
     >
-      <div className="bg-black/70 h-full flex flex-col justify-end gap-5 border p-5 lg:p-10 text-white">
-        <p className="text-xl lg:text-2xl">{title}</p>
-        <p>{desc}</p>
-        <div>
+      <div className="bg-black/70 h-full flex flex-col justify-end gap-6 border p-5 lg:p-6 text-white">
+        <div className="flex flex-col gap-3 md:gap-2">
+          <p className="text-xl md:text-lg lg:text-2xl">{title}</p>
+          <p className="leading-loose md:text-sm md:leading-9">{desc}</p>
+        </div>
+        <div className="md:flex">
           <Button
-            className="bg-white text-black hover:bg-black hover:text-white w-full md:w-auto"
+            className="bg-white text-black hover:bg-black hover:text-white flex items-center justify-center"
             text="shop now"
             to="/everything"
           />
