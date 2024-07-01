@@ -1,5 +1,3 @@
-import React from "react";
-
 const reducer = (state, action) => {
   switch (action.type) {
     case "ADD":
@@ -10,7 +8,14 @@ const reducer = (state, action) => {
     case "ADD_TO_CART":
       return {
         ...state,
-        cartProducts: action.payload,
+        cartProducts: action.payload.updatedProducts,
+        totalCartQuantity: action.payload.totalQuantity,
+      };
+
+    case "UPDATE_PRICE":
+      return {
+        ...state,
+        totalPrice: action.payload,
       };
 
     case "REMOVE_FROM_CART":

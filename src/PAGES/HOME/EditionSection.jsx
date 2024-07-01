@@ -26,6 +26,7 @@ const EditionSection = () => {
             <Button
               className="bg-white text-black hover:bg-black hover:text-white flex justify-center items-center"
               text="shop now"
+              to="/everything"
             />
           </div>
         </div>

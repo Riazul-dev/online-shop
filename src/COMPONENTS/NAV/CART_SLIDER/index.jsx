@@ -6,7 +6,7 @@ import { IoIosCloseCircleOutline, IoIosClose } from "react-icons/io";
 
 
 const CartSlider = ({ toggleCart, setToggleCart }) => {
-  const { cartProducts, removeFromCart } = globalContext();
+  const { cartProducts, removeFromCart, totalPrice } = globalContext();
 
 
   return (
@@ -21,15 +21,15 @@ const CartSlider = ({ toggleCart, setToggleCart }) => {
           </div>
 
           {/* products */}
-          <div className="h-[60vh] px-4 flex flex-col">
+          <section className="h-[60vh] px-4 flex flex-col">
             {cartProducts.map((product) => {
-              const { productImage, productName, newPrice } = product;
+              const { productImage, productName, newPrice, quantity } = product;
               return (
                 <div
                   key={product.id}
                   className="flex justify-between items-center border-b py-3"
                 >
-                  <div className="flex gap-4">
+                  <div className="flex items-center gap-14">
                     <div>
                       <img
                         className="w-16"
@@ -39,7 +39,10 @@ const CartSlider = ({ toggleCart, setToggleCart }) => {
                     </div>
                     <div className="flex flex-col justify-center gap-1">
                       <p className="text-slate-700 font-semibold">{productName}</p>
-                      <p className="flex items-center text-slate-600">5 <span className="text-2xl"><IoIosClose /></span> ${newPrice.toFixed(2)}</p>
+                      <p className="flex items-center text-slate-600">{quantity} <span className="text-2xl"><IoIosClose /></span> ${newPrice.toFixed(2)}</p>
+                    </div>
+                    <div>
+                      <p>( Subtotal: $ {(newPrice * quantity).toFixed(2)} )</p>
                     </div>
                   </div>
                   <div>
@@ -50,13 +53,13 @@ const CartSlider = ({ toggleCart, setToggleCart }) => {
                 </div>
               );
             })}
-          </div>
+          </section>
 
           {/* buttons */}
           <div className="">
             <div className="flex justify-between border px-4 py-2">
               <p>Subtotal:</p>
-              <p>$3424</p>
+              <p>$ {totalPrice.toFixed(2)}</p>
             </div>
             <div className="flex flex-col px-4 gap-3 py-4">
               <button className="bg-blue-500 py-3 text-white">VIEW CART</button>

@@ -7,7 +7,7 @@ import CartSlider from "./CART_SLIDER";
 
 const LgNav = () => {
   const [toggleCart, setToggleCart] = useState(false);
-  const { cartProducts } = globalContext();
+  const { cartProducts, totalCartQuantity, totalPrice } = globalContext();
 
   return (
     <div>
@@ -60,10 +60,10 @@ const LgNav = () => {
               className="flex gap-2 hover:text-blue-300 duration-200"
               onClick={() => setToggleCart(!toggleCart)}
             >
-              <p className="text-lg font-medium">$0.00</p>
+              <p className="text-lg font-medium">$ {totalPrice.toFixed(2)}</p>
               <BiSolidCartDownload className="text-2xl" />
               <span className="absolute min-h-5 min-w-5 flex justify-center items-center -top-4 right-0 border rounded-full text-xs p-0.5 bg-white text-slate-900">
-                {cartProducts.length > 0 ? cartProducts.length : 0}
+                {cartProducts.length > 0 ? totalCartQuantity : 0}
               </span>
             </NavLink>
           </div>

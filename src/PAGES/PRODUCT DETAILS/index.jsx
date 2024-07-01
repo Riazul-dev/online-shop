@@ -6,24 +6,13 @@ import DescReviewSection from "./DescReviewSection";
 import ProductColor from "./ProductColor";
 
 const ProductDetails = () => {
-  const [component, setComponent] = useState(false);
-  const [productQty, setProductQty] = useState(0);
   const { addToCart, detailProduct, cartProducts } = globalContext();
+
+  const [component, setComponent] = useState(false);
+  const [productQty, setProductQty] = useState(1);
   const displayProduct = detailProduct[0];
-  const {
-    productCategory,
-    productName,
-    productImage,
-    prevPrice,
-    newPrice,
-    colors,
-  } = displayProduct;
-
-  const handleClick = () => {
-    addToCart(displayProduct);
-  };
-
-
+  const { productCategory, productName, productImage, prevPrice, newPrice } =
+    displayProduct;
 
   return (
     <div className="bg-[#F5F7F9]">
@@ -65,38 +54,27 @@ const ProductDetails = () => {
               himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus
               condimentum sit amet a augue. Sed non neque elit sed.
             </p>
-            <div>
-              {/* Product color */}
-              {colors && (
-                <div className="flex flex-col gap-4">
-                  <ProductColor colors={colors} />
-                  <div>
-                    <button>Clear</button>
-                    <div className="border-b-2"></div>
-                    <p>${newPrice.toFixed(2)}</p>
-                  </div>
-                </div>
-              )}
 
-              <div className="flex gap-4 py-4 border-b-2">
-                <input
-                  onChange={(e) => setProductQty(e.target.value)}
-                  className="w-12 pl-3 py-1 border outline-none"
-                  min={1}
-                  type="number"
-                  defaultValue={1}
-                />
-                <button
-                  onClick={handleClick}
-                  className="bg-blue-500 text-white border px-10 lg:px-20 py-1"
-                >
-                  ADD TO CART
-                </button>
-              </div>
-              <div className="py-4">
-                {/* <p>SKU:N/A</p> */}
-                <p>Category:{productCategory}</p>
-              </div>
+            <div className="flex gap-4 py-4 border-b-2">
+              <input
+                onChange={(e) => setProductQty(e.target.value)}
+                className="w-12 pl-3 py-1 border outline-none"
+                min={1}
+                type="number"
+                defaultValue={1}
+              />
+              <button
+                onClick={() =>
+                  addToCart({ product: displayProduct, qty: productQty })
+                }
+                className="bg-blue-500 text-white border px-10 lg:px-20 py-1"
+              >
+                ADD TO CART
+              </button>
+            </div>
+            <div className="py-4">
+              {/* <p>SKU:N/A</p> */}
+              <p>Category:{productCategory}</p>
             </div>
           </div>
         </div>

@@ -4,7 +4,7 @@ import Button from "./Button";
 const CardHome = ({ title, desc, img }) => {
   return (
     <div
-      className="h-[300px] md:h-[450px] lg:h-[500px] bg-no-repeat bg-cover"
+      className="h-[300px] md:h-[450px] lg:h-[500px] lg:max-w-96 bg-no-repeat bg-cover"
       style={{
         backgroundImage: `url(${img})`,
       }}
