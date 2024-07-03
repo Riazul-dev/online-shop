@@ -61,7 +61,9 @@ const Cart_Products = () => {
                   <div className="flex justify-between items-center border-b py-3 px-2">
                     <span>Subtotal:</span>
                     <span>
-                      {(updateQuantity * newPrice).toFixed(2)}
+                      {updateQuantity === 0
+                        ? (quantity * newPrice).toFixed(2)
+                        : (updateQuantity * newPrice).toFixed(2)}
                     </span>
                   </div>
                 </div>
@@ -141,7 +143,9 @@ const Cart_Products = () => {
                       />
                     </div>
                     <div>
-                      {(quantity * newPrice).toFixed(2)}
+                      {updateQuantity === 0
+                        ? (quantity * newPrice).toFixed(2)
+                        : (updateQuantity * newPrice).toFixed(2)}
                     </div>
                   </div>
                 </div>
