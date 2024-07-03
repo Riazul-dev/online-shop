@@ -4,10 +4,8 @@ import { IoClose } from "react-icons/io5";
 import { globalContext } from "../../../CONTEXT/Context";
 import { IoIosCloseCircleOutline, IoIosClose } from "react-icons/io";
 
-
 const CartSlider = ({ toggleCart, setToggleCart }) => {
   const { cartProducts, removeFromCart, totalPrice } = globalContext();
-
 
   return (
     <>
@@ -15,7 +13,10 @@ const CartSlider = ({ toggleCart, setToggleCart }) => {
         <div className="min-h-screen flex flex-col justify-between py-4">
           <div className="flex justify-between px-4 pb-4 border-b">
             <p className="text-xl text-slate-600">Shopping Cart</p>
-            <button className="text-2xl text-slate-600" onClick={() => setToggleCart(!toggleCart)}>
+            <button
+              className="text-2xl text-slate-600"
+              onClick={() => setToggleCart(!toggleCart)}
+            >
               <IoClose />
             </button>
           </div>
@@ -37,16 +38,29 @@ const CartSlider = ({ toggleCart, setToggleCart }) => {
                         alt={productName}
                       />
                     </div>
+
                     <div className="flex flex-col justify-center gap-1">
-                      <p className="text-slate-700 font-semibold">{productName}</p>
-                      <p className="flex items-center text-slate-600">{quantity} <span className="text-2xl"><IoIosClose /></span> ${newPrice.toFixed(2)}</p>
+                      <p className="text-slate-700 font-semibold">
+                        {productName}
+                      </p>
+                      <p className="flex items-center text-slate-600">
+                        {quantity}{" "}
+                        <span className="text-2xl">
+                          <IoIosClose />
+                        </span>{" "}
+                        ${newPrice.toFixed(2)}
+                      </p>
                     </div>
-                    <div>
+
+                    <div className="hidden md:block">
                       <p>( Subtotal: $ {(newPrice * quantity).toFixed(2)} )</p>
                     </div>
                   </div>
                   <div>
-                    <button className="text-3xl text-slate-400" onClick={() => removeFromCart(product)}>
+                    <button
+                      className="text-3xl text-slate-400"
+                      onClick={() => removeFromCart(product)}
+                    >
                       <IoIosCloseCircleOutline />
                     </button>
                   </div>
@@ -56,13 +70,19 @@ const CartSlider = ({ toggleCart, setToggleCart }) => {
           </section>
 
           {/* buttons */}
-          <div className="">
+          <div>
             <div className="flex justify-between border px-4 py-2">
               <p>Subtotal:</p>
               <p>$ {totalPrice.toFixed(2)}</p>
             </div>
             <div className="flex flex-col px-4 gap-3 py-4">
-              <button className="bg-blue-500 py-3 text-white">VIEW CART</button>
+              <Link
+                to="/viewCartPage"
+                onClick={() => setToggleCart(false)}
+                className="bg-blue-500 py-3 text-white text-center"
+              >
+                VIEW CART
+              </Link>
               <button className="bg-blue-500 py-3 text-white">CHECKOUT</button>
             </div>
           </div>
@@ -71,7 +91,10 @@ const CartSlider = ({ toggleCart, setToggleCart }) => {
         <div className="min-h-screen flex flex-col justify-between py-4">
           <div className="flex justify-between px-4 pb-4 border-b">
             <p className="text-xl text-slate-600">Shopping Cart</p>
-            <button className="text-2xl text-slate-600" onClick={() => setToggleCart(!toggleCart)}>
+            <button
+              className="text-2xl text-slate-600"
+              onClick={() => setToggleCart(!toggleCart)}
+            >
               <IoClose />
             </button>
           </div>

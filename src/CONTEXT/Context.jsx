@@ -56,7 +56,7 @@ const ContextProvider = ({ children }) => {
   }, []);
 
   // Functions
-  const addToCart = ({product, qty}) => {
+  const addToCart = ({ product, qty }) => {
     const updatedProducts = state.cartProducts;
     const productIndex = updatedProducts.findIndex(
       (value) => product.id === value.id
@@ -96,9 +96,15 @@ const ContextProvider = ({ children }) => {
       (currentProduct) => currentProduct.id !== product.id
     );
 
+    const totalQuantity = updatedProduct.reduce((acc, item) => {
+      return acc + item.quantity;
+    }, 0);
+
+    updatePrice(updatedProduct);
+
     dispatch({
       type: "REMOVE_FROM_CART",
-      payload: updatedProduct,
+      payload: { updatedProduct: updatedProduct, totalQuantity: totalQuantity },
     });
   };
 
@@ -116,7 +122,7 @@ const ContextProvider = ({ children }) => {
   const updatePrice = (products) => {
     let totalPrice = 0;
     products.forEach((product) => {
-      return (totalPrice += (product.newPrice * product.quantity));
+      return (totalPrice += product.newPrice * product.quantity);
     });
 
     dispatch({

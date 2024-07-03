@@ -21,7 +21,8 @@ const reducer = (state, action) => {
     case "REMOVE_FROM_CART":
       return {
         ...state,
-        cartProducts: action.payload,
+        cartProducts: action.payload.updatedProduct,
+        totalCartQuantity: action.payload.totalQuantity,
       };
 
     case "ADD_TO_MEN_PRODUCT":

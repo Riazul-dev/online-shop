@@ -3,7 +3,8 @@ import { globalContext } from "../../CONTEXT/Context";
 // import { NavLink } from "react-router-dom";
 // import NavComponent from "./NavComponent";
 import DescReviewSection from "./DescReviewSection";
-import ProductColor from "./ProductColor";
+// import ProductColor from "./ProductColor";
+import { Link } from "react-router-dom";
 
 const ProductDetails = () => {
   const { addToCart, detailProduct, cartProducts } = globalContext();
@@ -21,9 +22,9 @@ const ProductDetails = () => {
         {cartProducts.length > 0 && (
           <div className="flex justify-end border-t-4 border-slate-800 px-10 pt-4">
             {/* <p>"{cartProducts.productName}" has been added to your cart.</p> */}
-            <button className="bg-blue-500 px-4 py-2 text-white">
+            <Link to="/viewCartPage" className="bg-blue-500 px-4 py-2 text-white">
               VIEW CART
-            </button>
+            </Link>
           </div>
         )}
 
