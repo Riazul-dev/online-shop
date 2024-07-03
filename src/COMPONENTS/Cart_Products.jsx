@@ -5,6 +5,7 @@ import { BsCartDash } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 const Cart_Products = () => {
+  const [updateQuantity, setUpdateQuantity] = useState(0);
   const { cartProducts, removeFromCart, totalPrice } = globalContext();
 
   return (
@@ -17,7 +18,6 @@ const Cart_Products = () => {
         <div>
           <section className="border lg:hidden">
             {cartProducts.map((product) => {
-              const [updateQuantity, setUpdateQuantity] = useState(0);
               const { productImage, productName, newPrice, quantity } = product;
               return (
                 <div key={product.id} className="flex flex-col">
@@ -61,9 +61,7 @@ const Cart_Products = () => {
                   <div className="flex justify-between items-center border-b py-3 px-2">
                     <span>Subtotal:</span>
                     <span>
-                      {updateQuantity === 0
-                        ? (quantity * newPrice).toFixed(2)
-                        : (updateQuantity * newPrice).toFixed(2)}
+                      {(quantity * newPrice).toFixed(2)}
                     </span>
                   </div>
                 </div>
@@ -103,8 +101,6 @@ const Cart_Products = () => {
             </div>
 
             {cartProducts.map((product) => {
-              const [updateQuantity, setUpdateQuantity] = useState(0);
-
               const { productImage, productName, newPrice, quantity } = product;
               return (
                 <div key={product.id} className="grid grid-cols-7 border-b">
@@ -143,9 +139,7 @@ const Cart_Products = () => {
                       />
                     </div>
                     <div>
-                      {updateQuantity === 0
-                        ? (quantity * newPrice).toFixed(2)
-                        : (updateQuantity * newPrice).toFixed(2)}
+                      {(quantity * newPrice).toFixed(2)}
                     </div>
                   </div>
                 </div>
