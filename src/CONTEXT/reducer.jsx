@@ -25,6 +25,13 @@ const reducer = (state, action) => {
         totalCartQuantity: action.payload.totalQuantity,
       };
 
+      case "UPDATE_CART":
+      return {
+        ...state,
+        cartProducts: action.payload.updatedProduct,
+        totalCartQuantity: action.payload.totalQuantity,
+      };
+
     case "ADD_TO_MEN_PRODUCT":
       return {
         ...state,

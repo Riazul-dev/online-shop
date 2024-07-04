@@ -108,6 +108,32 @@ const ContextProvider = ({ children }) => {
     });
   };
 
+  const updateCart = ({ product, updatedQuantity }) => {
+    const updatedProduct = state.cartProducts.map((item) => {
+      if (product.id === item.id) {
+        return {
+          ...item,
+          quantity: Number(updatedQuantity),
+        };
+      }
+      return item;
+    });
+
+    const totalQuantity = updatedProduct.reduce((acc, item) => {
+      return acc + item.quantity;
+    }, 0);
+
+    updatePrice(updatedProduct);
+
+    dispatch({
+      type: "UPDATE_CART",
+      payload: {
+        updatedProduct: updatedProduct,
+        totalQuantity: totalQuantity,
+      },
+    });
+  };
+
   const showProductDetails = (productId) => {
     const showProduct = ProductData.filter(
       (currentProduct) => currentProduct.id === productId
@@ -137,6 +163,7 @@ const ContextProvider = ({ children }) => {
         ...state,
         addToCart,
         removeFromCart,
+        updateCart,
         showProductDetails,
       }}
     >
