@@ -13,11 +13,13 @@ import ProductDetails from "./PAGES/PRODUCT DETAILS";
 import Footer from "./COMPONENTS/FOOTER/Footer";
 import LogIn from "./PAGES/LOGIN";
 import ViewCartPage from "./COMPONENTS/ViewCartPage";
+import ScrollToTop from "./COMPONENTS/ScrollToTop";
 
 function App() {
   return (
     <ContextProvider>
       <Router>
+        <ScrollToTop />
         <Navbar />
         <Routes>
           <Route path="/" Component={Home} />
