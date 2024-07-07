@@ -4,21 +4,16 @@ import { FaChevronRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { globalContext } from "../CONTEXT/Context";
 
-
-const CategoryPageSidebar = () => {
-    const [value, setValue] = useState([50, 300]);
-  const { menProducts, womenProducts, Accessories } = globalContext();
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
-
+const MenPageSidebar = () => {
+  const [sliderValue, setSliderValue] = useState([50, 300]);
+  const { menProducts, womenProducts, Accessories, FilteredMenProducts, sortedValue } = globalContext();
+console.log(sortedValue)
 
   return (
     <>
       <div className="flex items-start gap-2">
         <input
-          className="w-full py-2 px-3 border placeholder:font-thin"
+          className="w-full py-2 px-3 border outline-none placeholder:font-thin"
           type="text"
           placeholder="Search products..."
         />
@@ -31,8 +26,8 @@ const CategoryPageSidebar = () => {
         {/* mui */}
         <Box sx={{ width: "100%", px: "10px" }}>
           <Slider
-            value={value}
-            onChange={handleChange}
+            value={sliderValue}
+            onChange={(e) => setSliderValue(e.target.value)}
             valueLabelDisplay="off"
             min={50}
             max={300}
@@ -40,12 +35,15 @@ const CategoryPageSidebar = () => {
         </Box>
 
         <div className="flex justify-between items-center">
-          <button className="bg-blue-500 hover:bg-blue-600 duration-300 px-4 py-1 text-white text-sm">
+          <button
+            onClick={() => FilteredMenProducts(sliderValue)}
+            className="bg-blue-500 hover:bg-blue-600 duration-300 px-4 py-1 text-white text-sm"
+          >
             FILTER
           </button>
           <p className="text-sm">
-            Price: <span className="text-base">${value[0]}</span> -{" "}
-            <span className="text-base">${value[1]}</span>
+            Price: <span className="text-base">${sliderValue[0]}</span> -{" "}
+            <span className="text-base">${sliderValue[1]}</span>
           </p>
         </div>
       </div>
@@ -78,4 +76,4 @@ const CategoryPageSidebar = () => {
   );
 };
 
-export default CategoryPageSidebar;
+export default MenPageSidebar;

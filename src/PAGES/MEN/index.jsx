@@ -1,18 +1,18 @@
 import React from "react";
 import { globalContext } from "../../CONTEXT/Context";
 import CardProduct from "../../COMPONENTS/Card_Product";
-import CategoryPageSidebar from "../../COMPONENTS/CategoryPageSidebar";
+import MenPageSidebar from "../../COMPONENTS/MenPageSidebar";
 import BestSellers from "../../COMPONENTS/BestSellers";
 
 const MenProducts = () => {
-  const { menProducts } = globalContext();
+  const { menProducts, sortingProducts } = globalContext();
 
   return (
     <div className="bg-[#F5F7F9] pt-10 mt-10">
       <div className="grid lg:grid-cols-4 py-10">
         {/* Side bar */}
         <div className="px-4 py-6 flex flex-col gap-12 order-1 lg:order-none">
-          <CategoryPageSidebar />
+          <MenPageSidebar />
           <BestSellers />
         </div>
 
@@ -34,14 +34,22 @@ const MenProducts = () => {
           </div>
           <div className="flex flex-col md:flex-row justify-between gap-2 pt-12">
             <p>Showing 1-12 of 14 results</p>
-            <select className="outline-none border-none shadow-sm py-2 px-3 w-3/5 md:w-2/5 border rounded-md text-slate-500">
-              <option value="#">Default Sorting</option>
-              <option value="#">Sort by Popularity</option>
-              <option value="#">Sort by average rating</option>
-              <option value="#">Sort by latest</option>
-              <option value="#">Sort by price: low to high</option>
-              <option value="#">Sort by price: high to low</option>
-            </select>
+            <form action="#">
+              <label htmlFor="sort"></label>
+              <select
+                name="sort"
+                id="sort"
+                onChange={(e) => sortingProducts({sortedValue: e.target.value, data: menProducts})}
+                className="outline-none border-none shadow-sm py-2 px-3 border rounded-md text-slate-500"
+              >
+                {/* <option value="default">Default Sorting</option> */}
+                {/* <option value="popularity">Sort by Popularity</option>
+                <option value="average">Sort by average rating</option>
+                <option value="latest">Sort by latest</option> */}
+                <option value="lowest">Sort by price: low to high</option>
+                <option value="highest">Sort by price: high to low</option>
+              </select>
+            </form>
           </div>
 
           {/* Products */}

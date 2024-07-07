@@ -1,7 +1,7 @@
 import React from "react";
 import { globalContext } from "../../CONTEXT/Context";
 import CardProduct from "../../COMPONENTS/Card_Product";
-import CategoryPageSidebar from "../../COMPONENTS/CategoryPageSidebar";
+import AccessoriesPageSidebar from "../../COMPONENTS/AccessoriesPageSidebar";
 import BestSellers from "../../COMPONENTS/BestSellers";
 
 const Accessories = () => {
@@ -12,7 +12,7 @@ const Accessories = () => {
       <div className="grid lg:grid-cols-4 py-10">
         {/* Side bar */}
         <div className="px-4 py-6 flex flex-col gap-12 order-1 lg:order-none">
-          <CategoryPageSidebar />
+          <AccessoriesPageSidebar />
           <BestSellers />
         </div>
 

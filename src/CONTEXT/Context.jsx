@@ -17,6 +17,10 @@ const initialState = {
   womenProducts: [],
   Accessories: [],
   detailProduct: [],
+  sortedValue: "lowest",
+  sortedProducts: [],
+  filteredProducts: [],
+  sliderValue: [],
 };
 
 const ContextProvider = ({ children }) => {
@@ -27,6 +31,7 @@ const ContextProvider = ({ children }) => {
       type: "ADD",
       payload: ProductData,
     });
+
     // Men Products
     const menProduct = ProductData.filter((product) => {
       return product.productCategory === "Men";
@@ -145,6 +150,88 @@ const ContextProvider = ({ children }) => {
     });
   };
 
+  const FilteredEverythingProducts = (sliderValue) => {
+    const filteredItem = state.products.filter(
+      (item) => item.newPrice > sliderValue[0] && item.newPrice < sliderValue[1]
+    );
+
+    // sorting products
+    if (state.sortedValue === "lowest") {
+      filteredItem.sort((a, b) => a.newPrice - b.newPrice);
+    }
+
+    if (state.sortedValue === "highest") {
+      filteredItem.sort((a, b) => b.newPrice - a.newPrice);
+    }
+
+    dispatch({
+      type: "FILTERED_EVERYTHING_PRODUCTS",
+      payload: filteredItem,
+    });
+  };
+
+  const FilteredMenProducts = (sliderValue) => {
+    const menProduct = state.products.filter(
+      (item) => item.productCategory === "Men"
+    );
+
+    const filteredItem = menProduct.filter(
+      (item) => item.newPrice > sliderValue[0] && item.newPrice < sliderValue[1]
+    );
+
+    // sorting products
+    if (state.sortedValue === "lowest") {
+      filteredItem.sort((a, b) => a.newPrice - b.newPrice);
+    }
+
+    if (state.sortedValue === "highest") {
+      filteredItem.sort((a, b) => b.newPrice - a.newPrice);
+    }
+
+    dispatch({
+      type: "FILTERED_MEN_PRODUCTS",
+      payload: filteredItem,
+    });
+  };
+  
+  const FilteredWomenProducts = (sliderValue) => {
+    const womenProduct = state.products.filter(
+      (item) => item.productCategory === "Women"
+    );
+
+    const filteredItem = womenProduct.filter(
+      (item) => item.newPrice > sliderValue[0] && item.newPrice < sliderValue[1]
+    );
+
+    // sorting products
+    if (state.sortedValue === "lowest") {
+      filteredItem.sort((a, b) => a.newPrice - b.newPrice);
+    }
+
+    if (state.sortedValue === "highest") {
+      filteredItem.sort((a, b) => b.newPrice - a.newPrice);
+    }
+
+    dispatch({
+      type: "FILTERED_WOMEN_PRODUCTS",
+      payload: filteredItem,
+    });
+  };
+
+  const sortingProducts = ({ sortedValue, data }) => {
+    if (state.sortedValue === "lowest") {
+      data.sort((a, b) => a.newPrice - b.newPrice);
+    }
+
+    if (state.sortedValue === "highest") {
+      data.sort((a, b) => b.newPrice - a.newPrice);
+    }
+    dispatch({
+      type: "SORTING_PRODUCTS",
+      payload: sortedValue,
+    });
+  };
+
   const updatePrice = (products) => {
     let totalPrice = 0;
     products.forEach((product) => {
@@ -165,6 +252,10 @@ const ContextProvider = ({ children }) => {
         removeFromCart,
         updateCart,
         showProductDetails,
+        sortingProducts,
+        FilteredEverythingProducts,
+        FilteredMenProducts,
+        FilteredWomenProducts,
       }}
     >
       {children}
