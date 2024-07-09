@@ -217,6 +217,30 @@ const ContextProvider = ({ children }) => {
       payload: filteredItem,
     });
   };
+  
+  const FilteredAccessoriesProducts = (sliderValue) => {
+    const accessoriesProduct = state.products.filter(
+      (item) => item.productCategory === "Accessories"
+    );
+
+    const filteredItem = accessoriesProduct.filter(
+      (item) => item.newPrice > sliderValue[0] && item.newPrice < sliderValue[1]
+    );
+
+    // sorting products
+    if (state.sortedValue === "lowest") {
+      filteredItem.sort((a, b) => a.newPrice - b.newPrice);
+    }
+
+    if (state.sortedValue === "highest") {
+      filteredItem.sort((a, b) => b.newPrice - a.newPrice);
+    }
+
+    dispatch({
+      type: "FILTERED_ACCESSORIES_PRODUCTS",
+      payload: filteredItem,
+    });
+  };
 
   const sortingProducts = ({ sortedValue, data }) => {
     if (state.sortedValue === "lowest") {
@@ -256,6 +280,7 @@ const ContextProvider = ({ children }) => {
         FilteredEverythingProducts,
         FilteredMenProducts,
         FilteredWomenProducts,
+        FilteredAccessoriesProducts,
       }}
     >
       {children}

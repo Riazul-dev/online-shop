@@ -81,7 +81,7 @@ const ProductDetails = () => {
         </div>
 
         {/* Description and Review section */}
-        <DescReviewSection component={component} setComponent={setComponent} />
+        <DescReviewSection component={component} setComponent={setComponent} displayProduct={displayProduct} />
       </div>
     </div>
   );

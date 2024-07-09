@@ -6,7 +6,7 @@ import { globalContext } from "../CONTEXT/Context";
 
 const AccessoriesPageSidebar = () => {
   const [sliderValue, setSliderValue] = useState([50, 300]);
-  const { menProducts, womenProducts, Accessories, newFilteredProducts } = globalContext();
+  const { menProducts, womenProducts, Accessories, FilteredAccessoriesProducts } = globalContext();
 
 
   return (
@@ -36,7 +36,7 @@ const AccessoriesPageSidebar = () => {
 
         <div className="flex justify-between items-center">
           <button
-            onClick={() => newFilteredProducts(sliderValue)}
+            onClick={() => FilteredAccessoriesProducts(sliderValue)}
             className="bg-blue-500 hover:bg-blue-600 duration-300 px-4 py-1 text-white text-sm"
           >
             FILTER

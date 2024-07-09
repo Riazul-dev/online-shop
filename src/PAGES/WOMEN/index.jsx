@@ -39,13 +39,14 @@ const WomenProducts = () => {
               <select
                 name="sort"
                 id="sort"
-                onChange={(e) => sortingProducts({sortedValue: e.target.value, data: womenProducts})}
+                onChange={(e) =>
+                  sortingProducts({
+                    sortedValue: e.target.value,
+                    data: womenProducts,
+                  })
+                }
                 className="outline-none border-none shadow-sm py-2 px-3 border rounded-md text-slate-500"
               >
-                {/* <option value="default">Default Sorting</option> */}
-                {/* <option value="popularity">Sort by Popularity</option>
-                <option value="average">Sort by average rating</option>
-                <option value="latest">Sort by latest</option> */}
                 <option value="lowest">Sort by price: low to high</option>
                 <option value="highest">Sort by price: high to low</option>
               </select>

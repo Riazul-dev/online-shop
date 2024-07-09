@@ -1,7 +1,7 @@
 import React from 'react'
 import NavComponent from './NavComponent'
 
-const DescReviewSection = ({component, setComponent}) => {
+const DescReviewSection = ({component, setComponent, displayProduct}) => {
   return (
     <div className="px-4 lg:px-6">
           <nav className="border-t-4 md:border-t-2 border-slate-600 md:border-slate-300">
@@ -22,7 +22,7 @@ const DescReviewSection = ({component, setComponent}) => {
           </nav>
           {/* Product Description */}
           <div>
-            <NavComponent component={component} />
+            <NavComponent component={component} displayProduct={displayProduct} />
           </div>
           
         </div>

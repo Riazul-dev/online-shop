@@ -75,6 +75,12 @@ const reducer = (state, action) => {
         ...state,
         womenProducts: action.payload,
       };
+    
+      case "FILTERED_ACCESSORIES_PRODUCTS":
+      return {
+        ...state,
+        Accessories: action.payload,
+      };
 
     case "SORTING_PRODUCTS":
       return {

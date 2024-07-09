@@ -6,8 +6,8 @@ import { globalContext } from "../CONTEXT/Context";
 
 const WomenPageSidebar = () => {
   const [sliderValue, setSliderValue] = useState([50, 300]);
-  const { menProducts, womenProducts, Accessories, FilteredWomenProducts } = globalContext();
-
+  const { menProducts, womenProducts, Accessories, FilteredWomenProducts } =
+    globalContext();
 
   return (
     <>
